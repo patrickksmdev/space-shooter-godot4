@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://plartl0cx6so"]
+
+[ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://br8d73l1rkkar" path="res://scenes/game.gd" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://f37evp72pk8g" path="res://assets/Skyboxes/skybox-space.png" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://bo3nt4hntbwq" path="res://assets/Sprites/Ships/spaceShips_006.png" id="3_lbhrr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_80g3b"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_pys7u"]
+font_size = 28
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80g3b"]
+size = Vector2(88, 960)
+
+[node name="Game" type="Node2D" unique_id=953181009]
+script = ExtResource("1_yqjtg")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1610145909]
+position = Vector2(270.5, 481)
+scale = Vector2(0.13305664, 0.46777344)
+texture = ExtResource("2_lnu2h")
+
+[node name="Score" type="Label" parent="." unique_id=53440190]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 118.0
+offset_bottom = 72.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_80g3b")
+
+[node name="GameOver" type="Label" parent="." unique_id=1279846829]
+visible = false
+offset_right = 539.0
+offset_bottom = 960.0
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_pys7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeContainer" type="HBoxContainer" parent="." unique_id=1201233772]
+offset_left = 430.0
+offset_top = 904.0
+offset_right = 534.0
+offset_bottom = 957.0
+
+[node name="Life1" type="TextureRect" parent="LifeContainer" unique_id=1818641662]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_lbhrr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Life2" type="TextureRect" parent="LifeContainer" unique_id=302964068]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_lbhrr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Life3" type="TextureRect" parent="LifeContainer" unique_id=776650285]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_lbhrr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Player" parent="." unique_id=1975074759 instance=ExtResource("1_uwrxv")]
+position = Vector2(270, 850)
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=74498793]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1029667037]
+position = Vector2(-46, 481)
+shape = SubResource("RectangleShape2D_80g3b")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=659067667]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=240761315]
+position = Vector2(586, 482)
+shape = SubResource("RectangleShape2D_80g3b")
+
+[node name="Positions" type="Node2D" parent="." unique_id=813397858]
+
+[node name="Pos01" type="Marker2D" parent="Positions" unique_id=956364752]
+position = Vector2(90, -70)
+
+[node name="Pos02" type="Marker2D" parent="Positions" unique_id=2019893900]
+position = Vector2(180, -70)
+
+[node name="Pos03" type="Marker2D" parent="Positions" unique_id=882167530]
+position = Vector2(270, -70)
+
+[node name="Pos04" type="Marker2D" parent="Positions" unique_id=970612779]
+position = Vector2(360, -70)
+
+[node name="Pos05" type="Marker2D" parent="Positions" unique_id=793433323]
+position = Vector2(450, -70)
+
+[node name="TimerMeteor" type="Timer" parent="." unique_id=2122101482]
+wait_time = 5.0
+autostart = true
+
+[connection signal="life_changed" from="Player" to="." method="_on_player_life_changed"]
+[connection signal="missile_shoot" from="Player" to="." method="_on_player_missile_shoot"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
+[connection signal="timeout" from="TimerMeteor" to="." method="_on_timer_meteor_timeout"]

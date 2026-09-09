@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://wps0hpecyxnr"]
+
+[ext_resource type="Texture2D" uid="uid://bo3nt4hntbwq" path="res://assets/Sprites/Ships/spaceShips_006.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://c0fewq0nd2x0u" path="res://scenes/player.gd" id="1_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80g3b"]
+size = Vector2(47, 73)
+
+[node name="Player" type="CharacterBody2D" unique_id=1975074759]
+collision_mask = 12
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534079064]
+shape = SubResource("RectangleShape2D_80g3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1960448792]
+scale = Vector2(0.5, 0.49324325)
+texture = ExtResource("1_3vyb7")
+
+[node name="Position" type="Marker2D" parent="." unique_id=543951341]
+position = Vector2(0, -37)

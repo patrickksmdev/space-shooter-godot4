@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dgpqmty4sguwy"]
+
+[ext_resource type="Script" uid="uid://brkwfl1v3w61x" path="res://scenes/meteor.gd" id="1_pxso2"]
+[ext_resource type="Texture2D" uid="uid://dw1tehp8agqd1" path="res://assets/Sprites/Meteors/spaceMeteors_001.png" id="1_tcwo0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
+radius = 46.270943
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r80lr"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stakr"]
+bg_color = Color(0.794391, 5.9634e-05, 3.215134e-05, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="meteor" type="Area2D" unique_id=1335819895]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_pxso2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2064575808]
+scale = Vector2(0.49069768, 0.49052134)
+texture = ExtResource("1_tcwo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1605541435]
+shape = SubResource("CircleShape2D_8tegq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=649935195]
+position = Vector2(0, -85)
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1688914148]
+offset_left = -45.0
+offset_top = -58.0
+offset_right = 45.0
+offset_bottom = -48.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r80lr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_stakr")
+max_value = 3.0
+show_percentage = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
