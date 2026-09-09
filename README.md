@@ -20,6 +20,6 @@ Protótipo jogável de um clássico shooter espacial 2D desenvolvido com **Godot
 1. Instale o **Godot Engine 4.x**.
 2. Clone este repositório:
    ```bash
-   git clone [https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git](https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git)
+   git clone [https://github.com/patrickksmdev/space-shooter-godot4git](https://github.com/patrickksmdev/space-shooter-godot4.git)
    ```
 3. Abra a Godot, selecione **Import**, aponte para a pasta clonada e execute o projeto com `F5`.
