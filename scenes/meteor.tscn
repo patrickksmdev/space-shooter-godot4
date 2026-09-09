@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgpqmty4sguwy"]
 
-[ext_resource type="Script" uid="uid://brkwfl1v3w61x" path="res://scenes/meteor.gd" id="1_pxso2"]
+[ext_resource type="Script" uid="uid://brkwfl1v3w61x" path="res://scripts/meteor.gd" id="1_pxso2"]
 [ext_resource type="Texture2D" uid="uid://dw1tehp8agqd1" path="res://assets/Sprites/Meteors/spaceMeteors_001.png" id="1_tcwo0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]

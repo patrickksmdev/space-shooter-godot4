@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6fji7u88nh2y"]
 
-[ext_resource type="Script" uid="uid://b18yno026pjcc" path="res://scenes/missile.gd" id="1_6cx5e"]
+[ext_resource type="Script" uid="uid://b18yno026pjcc" path="res://scripts/missile.gd" id="1_6cx5e"]
 [ext_resource type="Texture2D" uid="uid://ceemivv43gicq" path="res://assets/Sprites/Missiles/spaceMissiles_018.png" id="1_np454"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80g3b"]
