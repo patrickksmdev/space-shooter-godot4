@@ -1,5 +1,7 @@
 # 2D Space Shooter (Godot 4)
 
+![Demonstração do Gameplay](gameplay.gif)
+
 Protótipo jogável de um clássico shooter espacial 2D desenvolvido com **Godot 4.x** e **GDScript**, com foco em boas práticas de engenharia de software, desempenho e arquitetura orientada a eventos.
 
 ## 🕹️ Funcionalidades
