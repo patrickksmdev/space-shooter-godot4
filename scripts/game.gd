@@ -1,7 +1,7 @@
 extends Node2D
 
-var missile_scene = preload("res://scenes/missile.tscn")
-var meteor_scene = preload("res://scenes/meteor.tscn")
+var missile_scene: PackedScene = preload("res://scenes/missile.tscn")
+var meteor_scene: PackedScene = preload("res://scenes/meteor.tscn")
 @onready var player = $Player
 @onready var spawn_positions = $Positions
 @onready var timer_meteor = $TimerMeteor
@@ -34,13 +34,13 @@ func _on_timer_meteor_timeout() -> void:
 	meteor_instance.destroyed.connect(_on_meteor_destroyed)
 	add_child(meteor_instance)
 
-func _on_meteor_destroyed():
+func _on_meteor_destroyed() -> void:
 	score += 10
 	timer_meteor.wait_time *= 0.99
 	
-	#Define um teto para o timer
-	if timer_meteor.wait_time <= 0.35:
-		timer_meteor.wait_time = 0.35
+	# Define um teto para o timer
+	if timer_meteor.wait_time <= 0.40:
+		timer_meteor.wait_time = 0.40
 
 func _on_player_life_changed(current_life: int) -> void:
 	var lifes: Array[Node] = life_container.get_children()
@@ -54,7 +54,7 @@ func _on_player_player_died() -> void:
 	is_game_over = true
 	gameover()
 
-func gameover():
+func gameover() -> void:
 	timer_meteor.stop()
 	game_over.visible = true
 	await get_tree().create_timer(1.5).timeout

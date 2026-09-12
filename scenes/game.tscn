@@ -103,7 +103,7 @@ position = Vector2(360, -70)
 position = Vector2(450, -70)
 
 [node name="TimerMeteor" type="Timer" parent="." unique_id=2122101482]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="life_changed" from="Player" to="." method="_on_player_life_changed"]

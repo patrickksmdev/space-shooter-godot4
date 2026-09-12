@@ -1,9 +1,9 @@
 extends Area2D
+ 
+@export var speed: float = 600.0
+@export var damage: int = 1
 
-@export var speed = 600
-@export var damage = 10
-
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	position.y -= speed * delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
@@ -11,5 +11,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
-		area.take_damage(1)
+		area.take_damage(damage)
+		$CollisionShape2D.set_deferred("disabled", true)
 		queue_free()
